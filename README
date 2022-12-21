@@ -1,0 +1,41 @@
+Laboratary: Apache SSL and S/MIME
+---------------------------------
+
+1. installed docker
+
+2. execute the command sudo docker build -t openssl .
+
+3. run the docker image sudo docker run -it openssl /bin/bash
+
+4. You will get the bash prompt. So change the directory: cd /user/home/ubuntu
+
+5. execute createCA.sh script. 
+   It will create your own CA. 
+   Your CA server's public key file is cacert.pem. 
+   It is in the sslCA directory. 
+   This public key has to be configured as 
+   trusted certificate in your application.
+
+6. execute createHostCert.sh script. 
+   Your Web server private key and certificate will be created. 
+   Your private keyfile is hostkey.pem and  certificate file is  hostcert.pem.
+    You can point these files by editing the  htttpd-ssl.conf.
+
+7. execute createUserCert.sh.
+   It will create your personal certificate. 
+   Your private key and certificates are packed into usr.pfx file. 
+   You can import it to your browser, e-mail or any other application.
+
+8. Now start another terminal and execute sudo docker ps
+
+9. copy files from docker container:
+   sudo docker cp cotainer_id:/user/home/ubuntu/usr.pfx .
+
+
+Activities
+----------
+
+1. Activate Apache SSL to perform bi-direactional strong authentication.
+
+2. Exchange sign and encrypt e-mails with your friends by using 
+   any S/MIME e-mailclient.

@@ -1,0 +1,4 @@
+# Edit the SSL configuration file
+sudo vi /etc/apache2/extra/httpd-ssl.conf
+# Restart the Apache Web server
+sudo apachectl restart
